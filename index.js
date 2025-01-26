@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 // Configurar autenticação com Google Sheets API
 const auth = new google.auth.GoogleAuth({
-    keyFile: 'pontoslocalizar-e449bddfa553.json', // Substitua pelo caminho do seu arquivo de credenciais
+    keyFile: 'pontoslocalizar-c02251d25869.json', // Substitua pelo caminho do seu arquivo de credenciais
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
 });
 
