@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Ponto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registro de Ponto</h1>
+    <p id="status">Clique em uma ação abaixo para registrar seu ponto.</p>
+    <button class="button" onclick="register('Entrada')">Registrar Entrada</button>
+    <button class="button" onclick="register('Saída Almoço')">Registrar Saída Almoço</button>
+    <button class="button" onclick="register('Entrada Almoço')">Registrar Entrada Almoço</button>
+    <button class="button" onclick="register('Saída')">Registrar Saída</button>
+
+    <script>
+        async function register(action) {
+            const status = document.getElementById('status');
+            status.textContent = 'Enviando dados...';
+
+            const data = {
+                action,
+                timestamp: new Date().toISOString(),
+            };
+
+            try {
+                const response = await fetch('http://127.0.0.1:4000/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+
+                if (response.ok) {
+                    status.textContent = `${action} registrada com sucesso!`;
+                } else {
+                    status.textContent = 'Erro ao registrar ponto.';
+                }
+            } catch (error) {
+                status.textContent = 'Erro na conexão com o servidor.';
+                console.error(error);
+            }
+        }
+    </script>
+</body>
+</html>

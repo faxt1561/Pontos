@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "pontoslocalizar",
+  "private_key_id": "b102dee6562a19add4c719c999c2582ae2dd9082",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDe6rf3EgWz7Ui5\n9AkvIGSqEjn9AKIMrx06QMGxm6SDhIwf9CgAXct3eq5aZy7az6ptxmzyZoIqItmY\nmx3Ie2ULO419e58jgfbDQwirNS4BtWQxorUS5YZ3IjVefBOMojFrfIluYfGen4ni\nYUxe6iRxY2C6EH8kZGN79Ijo3iUs725DXYW5xI0uvobJcK1dBR5w77TAgB12OFfa\nd1n4NkPUQTGAhumE0p1myJAGh708Pj8So7yT3p7m4ap5VCU0hqBYImQJdfEQ0cVL\nEJV3r/R2lbGJNoSmBwsFa3Vp41t1nV4znc0p42PDmRv/hAWgCukWasamH9uod+md\nFwj0Y6GzAgMBAAECggEAZYO0dVKCwFZ9uRkWGZ0B2qVkPQBNy8LvZ3jX/F7pw27Y\nNTEGCmysXOPEhKzanJDXhxhGwvjFrBSkzSdOn975u+zJ2Wwzo4Lq8i8Twov8QJDv\naN804L8fxh8Q+M8+Q9wU72MOXvNBikATFcHDerHcGLrt8K3UiKki2O8abhnECjrB\nbwHI9BRNFWww7MacSxTPbYJIhnsnQaS47S9O9c7VDA88qWYdUuA0SL4aBBSyh3XY\n6/VGllpqdqSzUqLe5uqvq+p55Z5qJhNKpipcDgf5PX9jY7auTKq8Zj140rLvEPeK\npRTMGjW0lvmsHJAtj3lWHHhsbX1DYuDsP8IATNp4wQKBgQD1aMU0Gy9gn2O8e7C3\nKhQioJaUBVgTziPgX0+XbR2cBKZvBzjuUSS0lTZgRKv0MSE6lzJcFHdnoTHVUO8h\ndgKVCLu7bxNK1kqjbmuxghZ0dhNA58LGZ0YotnhsJ2a0eBqNZc1kGYDOSz8tDqta\nUYh7BEMajl4uluHHCX7+2WMz4QKBgQDoiXUFql/yxlOSzny6v/uW/3wdpShQgEnU\n/KIIedcA36af/HnZiOBpzR2tqsLp2gDJAaWpYGdNojZqkaqb7BEQdc1Igb9mxol+\nVWil0cvXBKoPpG2O/OTZe3FXb1mhu6e4U5rBcIIFzkeruWx2BnmqyzRim9rjB4xH\nO0jrMV/IEwKBgEgwL4IqVP9pI194Sv02JYIiFuknwUbiJm+D2dfDQyh3vbV/PGHu\nAIwWME6VJLfKE+o2O5wWcSFMq2oCSrVfD1djoEV8YQJskrwMaSVoDM7pRLSc+BCA\npISpWDcISA/iHH1nasl9LwR/4e+RFxqUTT9Se6K+KjouK+/ufSreK25BAoGBAJTt\nfCIdxQeil2HdlyqvzD0f8Wi3HwO3thGPn2LYTagElR2/wHZe4INCV/Ci/eRxt7EE\nugmpcV/aNQm5s0/bN+6X09rNJj13iBV+M+CHZgqWtSgBgh1iwFq9YZDDAt+/ZKJ8\nARBEszFutJ45ykooyYFmVW2WLfDbI693O7NN0u87AoGAdrtuWp7XGadeR+Mo+y6R\nnNJNgwzhld3NeeWVRJN02uBd7Bn2Ny/RhamGVPsQxfgJg8ZuZck3a12jMunrExAR\n/lZ7FEhK1Ro/ZkOgbxChSLlrSYsRsXl18gKd09uCf1DejlhjtYSHbMROmCMDThTS\nZ3ezq6l53V2qhmbWal/n0uI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "pontos@pontoslocalizar.iam.gserviceaccount.com",
+  "client_id": "109398924433109469532",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/pontos%40pontoslocalizar.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

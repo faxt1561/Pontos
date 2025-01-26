@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Ponto com Geolocalização</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #output {
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registro de Ponto com Geolocalização</h1>
+
+    <button onclick="register('Entrada')">Registrar Entrada</button>
+    <button onclick="register('Saída Almoço')">Registrar Saída Almoço</button>
+    <button onclick="register('Entrada Almoço')">Registrar Entrada Almoço</button>
+    <button onclick="register('Saída')">Registrar Saída</button>
+
+    <div id="output">
+        <p id="status">Clique em um botão para registrar o ponto.</p>
+    </div>
+
+    <h2>Coordenadas Registradas</h2>
+    <table id="coordinatesTable">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Entrada (Latitude)</th>
+                <th>Entrada (Longitude)</th>
+                <th>Saída (Latitude)</th>
+                <th>Saída (Longitude)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- As coordenadas serão exibidas aqui -->
+        </tbody>
+    </table>
+
+    <script>
+        // Função para registrar o ponto
+        function register(action) {
+            const status = document.getElementById('status');
+
+            if ('geolocation' in navigator) {
+                status.textContent = 'Obtendo localização...';
+
+                navigator.geolocation.getCurrentPosition(
+                    async (position) => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+
+                        status.textContent = 'Localização obtida, registrando ponto...';
+
+                        try {
+                            const response = await fetch('http://localhost:4000/register', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({
+                                    action: action,
+                                    timestamp: new Date().toISOString(),
+                                    latitude: lat,
+                                    longitude: lon,
+                                }),
+                            });
+
+                            if (response.ok) {
+                                status.textContent = `${action} registrada com sucesso!`;
+                                fetchCoordinates(); // Atualiza a tabela com as coordenadas
+                            } else {
+                                status.textContent = 'Erro ao registrar ponto.';
+                            }
+                        } catch (error) {
+                            status.textContent = `Erro: ${error.message}`;
+                        }
+                    },
+                    (error) => {
+                        status.textContent = `Erro ao obter localização: ${error.message}`;
+                    }
+                );
+            } else {
+                status.textContent = 'Geolocalização não é suportada pelo seu navegador.';
+            }
+        }
+
+        // Função para buscar as coordenadas registradas e atualizar a tabela
+        async function fetchCoordinates() {
+            const tableBody = document.querySelector('#coordinatesTable tbody');
+
+            try {
+                const response = await fetch('http://localhost:4000/coordinates');  // Substitua pela URL do seu backend
+                const coordinates = await response.json();
+
+                // Limpa a tabela antes de adicionar os novos dados
+                tableBody.innerHTML = '';
+
+                // Adiciona as coordenadas na tabela
+                coordinates.forEach(coord => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${coord.date}</td>
+                        <td>${coord.entryLatitude}</td>
+                        <td>${coord.entryLongitude}</td>
+                        <td>${coord.exitLatitude}</td>
+                        <td>${coord.exitLongitude}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Erro ao buscar as coordenadas:', error);
+            }
+        }
+
+        // Chama a função para carregar as coordenadas assim que a página for carregada
+        window.onload = fetchCoordinates;
+    </script>
+</body>
+</html>
