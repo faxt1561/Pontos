@@ -187,16 +187,21 @@ app.get('/', (req, res) => {
     res.send('Servidor funcionando! Este é o endpoint raiz.');
 });
 
-app.use(express.static('public'));
 
 // Rota para qualquer outra página
 app.get('*', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
+
+app.use(express.static('public'));
     
 // Iniciar o servidor Produção
-app.listen(port, '0.0.0.0', () => {
-    console.log(`Servidor rodando em https://pontos.onrender.com/:${port}`);
+/* app.listen(port, '0.0.0.0', () => {
+    console.log(`Servidor rodando em https://pontos.onrender.com/:${port}`); */
+
+    app.listen(port, '0.0.0.0', () => {
+    console.log(`Servidor rodando em http://localhost:${port}`);
+});
 
 });
 
