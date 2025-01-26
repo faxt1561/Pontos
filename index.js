@@ -192,8 +192,13 @@ app.get('/', (req, res) => {
 app.get('*', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
+// Rota para qualquer outra página
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'seu-diretorio')));
     
 // Iniciar o servidor Produção
 /* app.listen(port, '0.0.0.0', () => {
@@ -201,6 +206,9 @@ app.use(express.static('public'));
 }); */
 
     app.listen(port, '0.0.0.0', () => {
+    console.log(`Servidor rodando em http://localhost:${port}`);
+});
+app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
 });
 
