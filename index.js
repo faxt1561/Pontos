@@ -197,11 +197,10 @@ app.use(express.static('public'));
     
 // Iniciar o servidor Produção
 /* app.listen(port, '0.0.0.0', () => {
-    console.log(`Servidor rodando em https://pontos.onrender.com/:${port}`); */
-});
+    console.log(`Servidor rodando em https://pontos.onrender.com/:${port}`); 
+}); */
 
     app.listen(port, '0.0.0.0', () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
-
 });
 
