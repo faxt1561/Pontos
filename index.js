@@ -206,9 +206,6 @@ app.use(express.static(path.join(__dirname, 'seu-diretorio')));
     console.log(`Servidor rodando em https://pontos.onrender.com/:${port}`); 
 }); */
 
-    app.listen(port, '0.0.0.0', () => {
-    console.log(`Servidor rodando em http://localhost:${port}`);
-});
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
 });
