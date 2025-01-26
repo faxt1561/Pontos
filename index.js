@@ -177,8 +177,13 @@ app.get('/coordinates', async (req, res) => {
         res.status(500).send('Erro ao obter coordenadas.');
     }
 }); */
-
+/*
 // Iniciar o servidor
 app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`); 
+    console.log(`Servidor rodando em http://localhost:${port}`); */
+
+// Iniciar o servidor Produção
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Servidor rodando em https://pontos.onrender.com/:${port}`);
+});
 }); 
