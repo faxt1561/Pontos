@@ -4,7 +4,8 @@ const { google } = require('googleapis');
 const cors = require('cors');
 
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 4000; //isso para rodar em produção 
+//const port = 4000; // Isso para rodar em Desenvolvimento
 
 // Permitir todas as origens
 app.use(cors());
